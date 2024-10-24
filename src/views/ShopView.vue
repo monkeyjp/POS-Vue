@@ -1,4 +1,9 @@
-<script setup></script>
+<script setup>
+import MainNav from "@/components/MainNav.vue";
+</script>
 
-<template>hola</template>
-<style scoped></style>
+<template>
+  <div>
+    <MainNav />
+  </div>
+</template>
