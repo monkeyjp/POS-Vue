@@ -1,5 +1,8 @@
 <script setup>
 import Link from "@/components/Link.vue";
+import useImage from "@/composables/useImage";
+
+const { onFileChange, isImageUploaded, url } = useImage();
 </script>
 
 <template>
@@ -22,7 +25,12 @@ import Link from "@/components/Link.vue";
             name="image"
             validation="required"
             accept=".jpg"
+            @change="onFileChange"
           />
+          <div v-if="isImageUploaded">
+            <p class="font-black">Product Image:</p>
+            <img :src="url" alt="new product image" class="w-32" />
+          </div>
           <FormKit
             type="select"
             label="Category"
