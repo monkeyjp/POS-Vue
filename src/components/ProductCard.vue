@@ -17,6 +17,7 @@ defineProps({
     <img :src="product.image" :alt="'image of ' + product.name" />
     <div class="p-3 space-y-2">
       <h3 class="text-xl font-black text-gray-500">{{ product.name }}</h3>
+      <p class="text-gray-900">Availability: {{ product.availability }}</p>
       <p class="text-2xl font-extrabold text-gray-900">
         {{ formatCurrency(product.price) }}
       </p>
