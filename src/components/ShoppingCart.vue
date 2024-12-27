@@ -25,15 +25,15 @@ const cart = useCartStore();
     >
       <Amount>
         <template #label>Subtotal:</template>
-        {{ formatCurrency(300) }}
+        {{ formatCurrency(cart.subtotal) }}
       </Amount>
       <Amount>
         <template #label>IVA:</template>
-        {{ formatCurrency(0) }}
+        {{ formatCurrency(cart.iva) }}
       </Amount>
       <Amount>
         <template #label>Total:</template>
-        {{ formatCurrency(300) }}
+        {{ formatCurrency(cart.total) }}
       </Amount>
     </dl>
   </div>
