@@ -1,10 +1,13 @@
 <script setup>
 import { useCartStore } from "@/stores/cart";
+import { useCouponStore } from "@/stores/coupons";
 import Amount from "./Amount.vue";
 import ShoppingCartItem from "./ShoppingCartItem.vue";
 import { formatCurrency } from "@/helpers";
+import CouponForm from "./CouponForm.vue";
 
 const cart = useCartStore();
+const coupon = useCouponStore();
 </script>
 
 <template>
@@ -31,10 +34,15 @@ const cart = useCartStore();
         <template #label>IVA:</template>
         {{ formatCurrency(cart.iva) }}
       </Amount>
+      <Amount v-if="coupon.isValidCoupon">
+        <template #label>Discount:</template>
+        {{ formatCurrency(coupon.discount) }}
+      </Amount>
       <Amount>
         <template #label>Total:</template>
         {{ formatCurrency(cart.total) }}
       </Amount>
     </dl>
+    <CouponForm />
   </div>
 </template>
